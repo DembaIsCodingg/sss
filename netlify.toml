@@ -1,0 +1,16 @@
+# Define build settings
+[build]
+  command = "npm run build"  # Adjust this according to your build setup if using npm
+  publish = "build"          # Directory where your static files are generated
+
+# Define HTTP headers (optional)
+[[headers]]
+  for = "/*"
+    [headers.values]
+      Cache-Control = "public, max-age=3600"  # Cache static assets for one hour
+
+# Define URL redirects (optional)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
